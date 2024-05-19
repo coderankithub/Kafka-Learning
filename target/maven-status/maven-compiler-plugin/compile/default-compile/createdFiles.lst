@@ -1,0 +1,7 @@
+learn\kafka\Application.class
+learn\kafka\web\HelloController.class
+learn\kafka\dto\HelloDTO.class
+learn\kafka\service\MessageConsumer.class
+learn\kafka\service\MessageProducer$MyProducerCallBack.class
+learn\kafka\service\MessageProducer.class
+learn\kafka\dto\Message.class

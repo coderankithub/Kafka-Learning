@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: learn.kafka.ApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.475 s <<< FAILURE! -- in learn.kafka.ApplicationTest
+learn.kafka.ApplicationTest.shouldRespondWithHelloMessage -- Time elapsed: 2.318 s <<< ERROR!
+org.springframework.web.client.RestClientException: Error while extracting response for type [class learn.kafka.dto.HelloDTO] and content type [application/json]
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:118)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:882)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:781)
+	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:395)
+	at org.springframework.boot.test.web.client.TestRestTemplate.getForObject(TestRestTemplate.java:199)
+	at learn.kafka.ApplicationTest.shouldRespondWithHelloMessage(ApplicationTest.java:30)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'Hello': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:406)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:354)
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:103)
+	... 8 more
+Caused by: com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'Hello': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 7]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2477)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:760)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._reportInvalidToken(UTF8StreamJsonParser.java:3699)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._handleUnexpectedValue(UTF8StreamJsonParser.java:2787)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._nextTokenNotInObject(UTF8StreamJsonParser.java:908)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.nextToken(UTF8StreamJsonParser.java:794)
+	at com.fasterxml.jackson.databind.ObjectReader._initForReading(ObjectReader.java:357)
+	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2095)
+	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1481)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:395)
+	... 10 more
+
